@@ -90,7 +90,7 @@ namespace BetterTPWrapper
         private void AddLogLine(string lineText)
         {
             listBoxLog.Items.Add(new LogItem(lineText));
-            listBoxLog.TopIndex = listBoxLog.Items.Count - 1;
+            
         }
 
         protected override void SetVisibleCore(bool value)
@@ -140,7 +140,8 @@ namespace BetterTPWrapper
             else if (FormWindowState.Normal == this.WindowState)
             {
                 notifyIcon.Visible = false;
-                this.BringToFront();
+                this.Activate();
+                listBoxLog.TopIndex = listBoxLog.Items.Count - 1;
             }
         }
     }
